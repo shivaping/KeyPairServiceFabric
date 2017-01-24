@@ -1,0 +1,1105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="KnowledgeAdventure.Service" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="KnowledgeAdventure.Service" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="KnowledgeAdventure.Service/Imports">
+      <xsd:import schemaLocation="http://svc.qa.jumpstart.com/ContentServer/ContentService.svc?xsd=xsd0" namespace="KnowledgeAdventure.Service" />
+      <xsd:import schemaLocation="http://svc.qa.jumpstart.com/ContentServer/ContentService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://svc.qa.jumpstart.com/ContentServer/ContentService.svc?xsd=xsd2" />
+      <xsd:import schemaLocation="http://svc.qa.jumpstart.com/ContentServer/ContentService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/KnowledgeAdventure.ContentServer.Model.Data" />
+      <xsd:import schemaLocation="http://svc.qa.jumpstart.com/ContentServer/ContentService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/KnowledgeAdventure.Model.Authentication.Enumerations" />
+      <xsd:import schemaLocation="http://svc.qa.jumpstart.com/ContentServer/ContentService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/KnowledgeAdventure.Model.Membership.Enumerations" />
+      <xsd:import schemaLocation="http://svc.qa.jumpstart.com/ContentServer/ContentService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/KnowledgeAdventure.ContentServer.Model.Avatar" />
+      <xsd:import schemaLocation="http://svc.qa.jumpstart.com/ContentServer/ContentService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/System" />
+      <xsd:import schemaLocation="http://svc.qa.jumpstart.com/ContentServer/ContentService.svc?xsd=xsd8" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://svc.qa.jumpstart.com/ContentServer/ContentService.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/System.Collections.Generic" />
+      <xsd:import schemaLocation="http://svc.qa.jumpstart.com/ContentServer/ContentService.svc?xsd=xsd10" namespace="http://schemas.datacontract.org/2004/07/KnowledgeAdventure.ContentServer.Model.Image" />
+      <xsd:import schemaLocation="http://svc.qa.jumpstart.com/ContentServer/ContentService.svc?xsd=xsd11" namespace="http://schemas.datacontract.org/2004/07/KnowledgeAdventure.ItemStore.Model.Items" />
+      <xsd:import schemaLocation="http://svc.qa.jumpstart.com/ContentServer/ContentService.svc?xsd=xsd12" namespace="http://schemas.datacontract.org/2004/07/KnowledgeAdventure.ContentServer.Model.Inventory" />
+      <xsd:import schemaLocation="http://svc.qa.jumpstart.com/ContentServer/ContentService.svc?xsd=xsd13" namespace="http://schemas.datacontract.org/2004/07/KnowledgeAdventure.ContentServer.Model.Staff" />
+      <xsd:import schemaLocation="http://svc.qa.jumpstart.com/ContentServer/ContentService.svc?xsd=xsd14" namespace="http://schemas.datacontract.org/2004/07/KnowledgeAdventure.MicroTransaction" />
+      <xsd:import schemaLocation="http://svc.qa.jumpstart.com/ContentServer/ContentService.svc?xsd=xsd15" namespace="http://schemas.datacontract.org/2004/07/KnowledgeAdventure.ContentServer.Model.ContentServer" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IContentService_GetAuthoritativeTime_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAuthoritativeTime" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetAuthoritativeTime_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAuthoritativeTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetAvatarByUserID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAvatarByUserID" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetAvatarByUserID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAvatarByUserIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetAvatarDisplayDataByUserID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAvatarDisplayDataByUserID" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetAvatarDisplayDataByUserID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAvatarDisplayDataByUserIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetAvatar_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetAvatar" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetAvatar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetAvatarResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetDisplayName_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetDisplayName" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetDisplayName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetDisplayNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetNickname_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetNickname" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetNickname_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetNicknameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetAvatarDisplayName_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetAvatarDisplayName" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetAvatarDisplayName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetAvatarDisplayNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetDisplayNames_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDisplayNames" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetDisplayNames_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDisplayNamesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetDisplayNameByUserID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDisplayNameByUserID" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetDisplayNameByUserID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDisplayNameByUserIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetNicknames_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNicknames" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetNicknames_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNicknamesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetDisplayNamesByUserIDs_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDisplayNamesByUserIDs" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetDisplayNamesByUserIDs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDisplayNamesByUserIDsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetDefaultAvatar_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetDefaultAvatar" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetDefaultAvatar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetDefaultAvatarResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetUserGrade_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetUserGrade" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetUserGrade_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetUserGradeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetUserGrade_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserGrade" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetUserGrade_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserGradeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetAllUserGradesByPGID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUserGradesByPGID" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetAllUserGradesByPGID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUserGradesByPGIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetHouseByUserID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetHouseByUserID" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetHouseByUserID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetHouseByUserIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetHouse_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetHouse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetHouse_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetHouseResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SubmitImage_InputMessage">
+    <wsdl:part name="parameters" element="tns:SubmitImage" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SubmitImage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SubmitImageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetImageDataByProductGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetImageDataByProductGroup" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetImageDataByProductGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetImageDataByProductGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetImage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetImage" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetImage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetImageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetImageByProductGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetImageByProductGroup" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetImageByProductGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetImageByProductGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetImage_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetImage" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetImage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetImageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetImageWithImageUrlReturned_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetImageWithImageUrlReturned" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetImageWithImageUrlReturned_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetImageWithImageUrlReturnedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_DelImage_InputMessage">
+    <wsdl:part name="parameters" element="tns:DelImage" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_DelImage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DelImageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_CacheContent_InputMessage">
+    <wsdl:part name="parameters" element="tns:CacheContent" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_CacheContent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CacheContentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetRevealIndex_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRevealIndex" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetRevealIndex_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRevealIndexResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetRevealIndex_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetRevealIndex" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetRevealIndex_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetRevealIndexResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetPresentIndex_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPresentIndex" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetPresentIndex_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPresentIndexResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetPresentIndex_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetPresentIndex" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetPresentIndex_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetPresentIndexResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetInventory_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInventory" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetInventory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInventoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetInventory_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetInventory" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetInventory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetInventoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetCommonInventory_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCommonInventory" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetCommonInventory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCommonInventoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetCommonInventory_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetCommonInventory" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetCommonInventory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetCommonInventoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_AcceptTrade_InputMessage">
+    <wsdl:part name="parameters" element="tns:AcceptTrade" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_AcceptTrade_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AcceptTradeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_AddRewardItemToInventory_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddRewardItemToInventory" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_AddRewardItemToInventory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddRewardItemToInventoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_PurchaseItems_InputMessage">
+    <wsdl:part name="parameters" element="tns:PurchaseItems" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_PurchaseItems_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PurchaseItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SellItems_InputMessage">
+    <wsdl:part name="parameters" element="tns:SellItems" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SellItems_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SellItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_UseInventory_InputMessage">
+    <wsdl:part name="parameters" element="tns:UseInventory" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_UseInventory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UseInventoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_UseInventoryAndGetMultiplierRewards_InputMessage">
+    <wsdl:part name="parameters" element="tns:UseInventoryAndGetMultiplierRewards" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_UseInventoryAndGetMultiplierRewards_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UseInventoryAndGetMultiplierRewardsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetUserItemPositions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserItemPositions" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetUserItemPositions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserItemPositionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetUserItemPositions_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetUserItemPositions" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetUserItemPositions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetUserItemPositionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetUserRoomItemPositions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserRoomItemPositions" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetUserRoomItemPositions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserRoomItemPositionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetUserRoomItemPositions_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetUserRoomItemPositions" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetUserRoomItemPositions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetUserRoomItemPositionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetUserTimedItemByUserID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserTimedItemByUserID" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetUserTimedItemByUserID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserTimedItemByUserIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetUserTimedItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetUserTimedItem" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetUserTimedItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetUserTimedItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_DeleteUserTimedItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserTimedItem" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_DeleteUserTimedItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserTimedItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetUserStaff_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetUserStaff" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetUserStaff_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetUserStaffResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetUserStaffByUserID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserStaffByUserID" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetUserStaffByUserID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserStaffByUserIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_CleanupUserStaffByUserID_InputMessage">
+    <wsdl:part name="parameters" element="tns:CleanupUserStaffByUserID" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_CleanupUserStaffByUserID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CleanupUserStaffByUserIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetJobTypeList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetJobTypeList" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetJobTypeList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetJobTypeListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetUserGiftRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetUserGiftRequest" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetUserGiftRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetUserGiftRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetUserGiftRecipient_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetUserGiftRecipient" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetUserGiftRecipient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetUserGiftRecipientResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetUserGiftRequestByGiftRequestKey_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserGiftRequestByGiftRequestKey" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetUserGiftRequestByGiftRequestKey_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserGiftRequestByGiftRequestKeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetUserActivityByUserID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserActivityByUserID" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetUserActivityByUserID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserActivityByUserIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetUserActivityByProductGroupID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserActivityByProductGroupID" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetUserActivityByProductGroupID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserActivityByProductGroupIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetUserActivityCountByUserActivityTypeID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserActivityCountByUserActivityTypeID" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetUserActivityCountByUserActivityTypeID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserActivityCountByUserActivityTypeIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetActivityTypeList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetActivityTypeList" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetActivityTypeList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetActivityTypeListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetUserActivity_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetUserActivity" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetUserActivity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetUserActivityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetUserActivityByProductGroupID_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetUserActivityByProductGroupID" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetUserActivityByProductGroupID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetUserActivityByProductGroupIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetKeyValuePair_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetKeyValuePair" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetKeyValuePair_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetKeyValuePairResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetKeyValuePair_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetKeyValuePair" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetKeyValuePair_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetKeyValuePairResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_DelKeyValuePair_InputMessage">
+    <wsdl:part name="parameters" element="tns:DelKeyValuePair" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_DelKeyValuePair_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DelKeyValuePairResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_DelKeyValuePairByKey_InputMessage">
+    <wsdl:part name="parameters" element="tns:DelKeyValuePairByKey" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_DelKeyValuePairByKey_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DelKeyValuePairByKeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_DelKeyValuePairByKeys_InputMessage">
+    <wsdl:part name="parameters" element="tns:DelKeyValuePairByKeys" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_DelKeyValuePairByKeys_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DelKeyValuePairByKeysResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_TransferGuestKeyValuePair_InputMessage">
+    <wsdl:part name="parameters" element="tns:TransferGuestKeyValuePair" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_TransferGuestKeyValuePair_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TransferGuestKeyValuePairResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetLessonMastery_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLessonMastery" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetLessonMastery_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLessonMasteryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetLessonMastery_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetLessonMastery" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetLessonMastery_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetLessonMasteryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetLessonStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetLessonStatus" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetLessonStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetLessonStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetTopUsersByCorrectAnswer_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTopUsersByCorrectAnswer" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetTopUsersByCorrectAnswer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTopUsersByCorrectAnswerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetUserMission_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserMission" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetUserMission_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserMissionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetUserMission_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetUserMission" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetUserMission_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetUserMissionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetUserMissionComplete_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetUserMissionComplete" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetUserMissionComplete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetUserMissionCompleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetCurrentPetByUserID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCurrentPetByUserID" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetCurrentPetByUserID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCurrentPetByUserIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetAdoptedPetData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAdoptedPetData" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetAdoptedPetData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAdoptedPetDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetCurrentPetData_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetCurrentPetData" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetCurrentPetData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetCurrentPetDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetAdoptedPet_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetAdoptedPet" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetAdoptedPet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetAdoptedPetResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_DelCurrentPet_InputMessage">
+    <wsdl:part name="parameters" element="tns:DelCurrentPet" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_DelCurrentPet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DelCurrentPetResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProduct" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetProductPlatformMap_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductPlatformMap" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetProductPlatformMap_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductPlatformMapResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetProduct" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetProductGroupID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductGroupID" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetProductGroupID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductGroupIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetSceneByUserID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSceneByUserID" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetSceneByUserID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSceneByUserIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetScene_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetScene" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetScene_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetSceneResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetUserBadgeComplete_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserBadgeComplete" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetUserBadgeComplete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserBadgeCompleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetUserBadgeComplete_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetUserBadgeComplete" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetUserBadgeComplete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetUserBadgeCompleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetUserTreasureChest_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserTreasureChest" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetUserTreasureChest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserTreasureChestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetUserTreasureChest_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetUserTreasureChest" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetUserTreasureChest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetUserTreasureChestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetUserChestFound_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetUserChestFound" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetUserChestFound_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetUserChestFoundResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetTracksByUserID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTracksByUserID" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetTracksByUserID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTracksByUserIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetTracksByIDs_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTracksByIDs" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetTracksByIDs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTracksByIDsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetTrackElements_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrackElements" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetTrackElements_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrackElementsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_RemoveUserWithoutTrack_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveUserWithoutTrack" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_RemoveUserWithoutTrack_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveUserWithoutTrackResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetTrack_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetTrack" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetTrack_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetTrackResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_DeleteTrack_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTrack" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_DeleteTrack_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTrackResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_PurchaseGift_InputMessage">
+    <wsdl:part name="parameters" element="tns:PurchaseGift" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_PurchaseGift_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PurchaseGiftResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetGiftsReceivedByUserID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGiftsReceivedByUserID" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetGiftsReceivedByUserID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGiftsReceivedByUserIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_UseTickets_InputMessage">
+    <wsdl:part name="parameters" element="tns:UseTickets" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_UseTickets_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UseTicketsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetAllProducts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllProducts" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetAllProducts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllProductsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_IsDisplayNameUnique_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsDisplayNameUnique" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_IsDisplayNameUnique_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsDisplayNameUniqueResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetUniqueDisplayName_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetUniqueDisplayName" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetUniqueDisplayName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetUniqueDisplayNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_RemoveUniqueDisplayName_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveUniqueDisplayName" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_RemoveUniqueDisplayName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveUniqueDisplayNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetNextItemState_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetNextItemState" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetNextItemState_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetNextItemStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetSpeedUpItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetSpeedUpItem" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetSpeedUpItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetSpeedUpItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_DeleteProfile_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteProfile" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_DeleteProfile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteProfileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_ValidateName_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateName" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_ValidateName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetUserSubscriptionProvider_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserSubscriptionProvider" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetUserSubscriptionProvider_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserSubscriptionProviderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetUserByExternalUserID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByExternalUserID" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_GetUserByExternalUserID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByExternalUserIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetCommonInventoryAttribute_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetCommonInventoryAttribute" />
+  </wsdl:message>
+  <wsdl:message name="IContentService_SetCommonInventoryAttribute_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetCommonInventoryAttributeResponse" />
+  </wsdl:message>
+  <wsdl:portType msc:usingSession="false" name="IContentService">
+    <wsdl:operation name="GetAuthoritativeTime">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/GetAuthoritativeTime" message="tns:IContentService_GetAuthoritativeTime_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/GetAuthoritativeTimeResponse" message="tns:IContentService_GetAuthoritativeTime_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAvatarByUserID">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/GetAvatarByUserID" message="tns:IContentService_GetAvatarByUserID_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/GetAvatarByUserIDResponse" message="tns:IContentService_GetAvatarByUserID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAvatarDisplayDataByUserID">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/GetAvatarDisplayDataByUserID" message="tns:IContentService_GetAvatarDisplayDataByUserID_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/GetAvatarDisplayDataByUserIDResponse" message="tns:IContentService_GetAvatarDisplayDataByUserID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetAvatar">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/SetAvatar" message="tns:IContentService_SetAvatar_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/SetAvatarResponse" message="tns:IContentService_SetAvatar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetDisplayName">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/SetDisplayName" message="tns:IContentService_SetDisplayName_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/SetDisplayNameResponse" message="tns:IContentService_SetDisplayName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetNickname">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/SetNickname" message="tns:IContentService_SetNickname_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/SetNicknameResponse" message="tns:IContentService_SetNickname_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetAvatarDisplayName">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/SetAvatarDisplayName" message="tns:IContentService_SetAvatarDisplayName_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/SetAvatarDisplayNameResponse" message="tns:IContentService_SetAvatarDisplayName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDisplayNames">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/GetDisplayNames" message="tns:IContentService_GetDisplayNames_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/GetDisplayNamesResponse" message="tns:IContentService_GetDisplayNames_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDisplayNameByUserID">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/GetDisplayNameByUserID" message="tns:IContentService_GetDisplayNameByUserID_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/GetDisplayNameByUserIDResponse" message="tns:IContentService_GetDisplayNameByUserID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNicknames">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/GetNicknames" message="tns:IContentService_GetNicknames_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/GetNicknamesResponse" message="tns:IContentService_GetNicknames_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDisplayNamesByUserIDs">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/GetDisplayNamesByUserIDs" message="tns:IContentService_GetDisplayNamesByUserIDs_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/GetDisplayNamesByUserIDsResponse" message="tns:IContentService_GetDisplayNamesByUserIDs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetDefaultAvatar">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/SetDefaultAvatar" message="tns:IContentService_SetDefaultAvatar_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/SetDefaultAvatarResponse" message="tns:IContentService_SetDefaultAvatar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetUserGrade">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/SetUserGrade" message="tns:IContentService_SetUserGrade_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/SetUserGradeResponse" message="tns:IContentService_SetUserGrade_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserGrade">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/GetUserGrade" message="tns:IContentService_GetUserGrade_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/GetUserGradeResponse" message="tns:IContentService_GetUserGrade_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUserGradesByPGID">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/GetAllUserGradesByPGID" message="tns:IContentService_GetAllUserGradesByPGID_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/GetAllUserGradesByPGIDResponse" message="tns:IContentService_GetAllUserGradesByPGID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHouseByUserID">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/GetHouseByUserID" message="tns:IContentService_GetHouseByUserID_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/GetHouseByUserIDResponse" message="tns:IContentService_GetHouseByUserID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetHouse">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/SetHouse" message="tns:IContentService_SetHouse_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/SetHouseResponse" message="tns:IContentService_SetHouse_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SubmitImage">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/SubmitImage" message="tns:IContentService_SubmitImage_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/SubmitImageResponse" message="tns:IContentService_SubmitImage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetImageDataByProductGroup">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/GetImageDataByProductGroup" message="tns:IContentService_GetImageDataByProductGroup_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/GetImageDataByProductGroupResponse" message="tns:IContentService_GetImageDataByProductGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetImage">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/GetImage" message="tns:IContentService_GetImage_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/GetImageResponse" message="tns:IContentService_GetImage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetImageByProductGroup">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/GetImageByProductGroup" message="tns:IContentService_GetImageByProductGroup_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/GetImageByProductGroupResponse" message="tns:IContentService_GetImageByProductGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetImage">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/SetImage" message="tns:IContentService_SetImage_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/SetImageResponse" message="tns:IContentService_SetImage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetImageWithImageUrlReturned">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/SetImageWithImageUrlReturned" message="tns:IContentService_SetImageWithImageUrlReturned_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/SetImageWithImageUrlReturnedResponse" message="tns:IContentService_SetImageWithImageUrlReturned_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DelImage">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/DelImage" message="tns:IContentService_DelImage_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/DelImageResponse" message="tns:IContentService_DelImage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CacheContent">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/CacheContent" message="tns:IContentService_CacheContent_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/CacheContentResponse" message="tns:IContentService_CacheContent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRevealIndex">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/GetRevealIndex" message="tns:IContentService_GetRevealIndex_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/GetRevealIndexResponse" message="tns:IContentService_GetRevealIndex_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetRevealIndex">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/SetRevealIndex" message="tns:IContentService_SetRevealIndex_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/SetRevealIndexResponse" message="tns:IContentService_SetRevealIndex_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPresentIndex">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/GetPresentIndex" message="tns:IContentService_GetPresentIndex_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/GetPresentIndexResponse" message="tns:IContentService_GetPresentIndex_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetPresentIndex">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/SetPresentIndex" message="tns:IContentService_SetPresentIndex_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/SetPresentIndexResponse" message="tns:IContentService_SetPresentIndex_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInventory">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/GetInventory" message="tns:IContentService_GetInventory_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/GetInventoryResponse" message="tns:IContentService_GetInventory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetInventory">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/SetInventory" message="tns:IContentService_SetInventory_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/SetInventoryResponse" message="tns:IContentService_SetInventory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCommonInventory">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/GetCommonInventory" message="tns:IContentService_GetCommonInventory_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/GetCommonInventoryResponse" message="tns:IContentService_GetCommonInventory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetCommonInventory">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/SetCommonInventory" message="tns:IContentService_SetCommonInventory_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/SetCommonInventoryResponse" message="tns:IContentService_SetCommonInventory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AcceptTrade">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/AcceptTrade" message="tns:IContentService_AcceptTrade_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/AcceptTradeResponse" message="tns:IContentService_AcceptTrade_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddRewardItemToInventory">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/AddRewardItemToInventory" message="tns:IContentService_AddRewardItemToInventory_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/AddRewardItemToInventoryResponse" message="tns:IContentService_AddRewardItemToInventory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PurchaseItems">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/PurchaseItems" message="tns:IContentService_PurchaseItems_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/PurchaseItemsResponse" message="tns:IContentService_PurchaseItems_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SellItems">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/SellItems" message="tns:IContentService_SellItems_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/SellItemsResponse" message="tns:IContentService_SellItems_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UseInventory">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/UseInventory" message="tns:IContentService_UseInventory_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/UseInventoryResponse" message="tns:IContentService_UseInventory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UseInventoryAndGetMultiplierRewards">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/UseInventoryAndGetMultiplierRewards" message="tns:IContentService_UseInventoryAndGetMultiplierRewards_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/UseInventoryAndGetMultiplierRewardsResponse" message="tns:IContentService_UseInventoryAndGetMultiplierRewards_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserItemPositions">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/GetUserItemPositions" message="tns:IContentService_GetUserItemPositions_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/GetUserItemPositionsResponse" message="tns:IContentService_GetUserItemPositions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetUserItemPositions">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/SetUserItemPositions" message="tns:IContentService_SetUserItemPositions_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/SetUserItemPositionsResponse" message="tns:IContentService_SetUserItemPositions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserRoomItemPositions">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/GetUserRoomItemPositions" message="tns:IContentService_GetUserRoomItemPositions_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/GetUserRoomItemPositionsResponse" message="tns:IContentService_GetUserRoomItemPositions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetUserRoomItemPositions">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/SetUserRoomItemPositions" message="tns:IContentService_SetUserRoomItemPositions_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/SetUserRoomItemPositionsResponse" message="tns:IContentService_SetUserRoomItemPositions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserTimedItemByUserID">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/GetUserTimedItemByUserID" message="tns:IContentService_GetUserTimedItemByUserID_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/GetUserTimedItemByUserIDResponse" message="tns:IContentService_GetUserTimedItemByUserID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetUserTimedItem">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/SetUserTimedItem" message="tns:IContentService_SetUserTimedItem_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/SetUserTimedItemResponse" message="tns:IContentService_SetUserTimedItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUserTimedItem">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/DeleteUserTimedItem" message="tns:IContentService_DeleteUserTimedItem_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/DeleteUserTimedItemResponse" message="tns:IContentService_DeleteUserTimedItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetUserStaff">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/SetUserStaff" message="tns:IContentService_SetUserStaff_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/SetUserStaffResponse" message="tns:IContentService_SetUserStaff_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserStaffByUserID">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/GetUserStaffByUserID" message="tns:IContentService_GetUserStaffByUserID_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/GetUserStaffByUserIDResponse" message="tns:IContentService_GetUserStaffByUserID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CleanupUserStaffByUserID">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/CleanupUserStaffByUserID" message="tns:IContentService_CleanupUserStaffByUserID_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/CleanupUserStaffByUserIDResponse" message="tns:IContentService_CleanupUserStaffByUserID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJobTypeList">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/GetJobTypeList" message="tns:IContentService_GetJobTypeList_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/GetJobTypeListResponse" message="tns:IContentService_GetJobTypeList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetUserGiftRequest">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/SetUserGiftRequest" message="tns:IContentService_SetUserGiftRequest_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/SetUserGiftRequestResponse" message="tns:IContentService_SetUserGiftRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetUserGiftRecipient">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/SetUserGiftRecipient" message="tns:IContentService_SetUserGiftRecipient_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/SetUserGiftRecipientResponse" message="tns:IContentService_SetUserGiftRecipient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserGiftRequestByGiftRequestKey">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/GetUserGiftRequestByGiftRequestKey" message="tns:IContentService_GetUserGiftRequestByGiftRequestKey_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/GetUserGiftRequestByGiftRequestKeyResponse" message="tns:IContentService_GetUserGiftRequestByGiftRequestKey_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserActivityByUserID">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/GetUserActivityByUserID" message="tns:IContentService_GetUserActivityByUserID_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/GetUserActivityByUserIDResponse" message="tns:IContentService_GetUserActivityByUserID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserActivityByProductGroupID">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/GetUserActivityByProductGroupID" message="tns:IContentService_GetUserActivityByProductGroupID_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/GetUserActivityByProductGroupIDResponse" message="tns:IContentService_GetUserActivityByProductGroupID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserActivityCountByUserActivityTypeID">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/GetUserActivityCountByUserActivityTypeID" message="tns:IContentService_GetUserActivityCountByUserActivityTypeID_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/GetUserActivityCountByUserActivityTypeIDResponse" message="tns:IContentService_GetUserActivityCountByUserActivityTypeID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActivityTypeList">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/GetActivityTypeList" message="tns:IContentService_GetActivityTypeList_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/GetActivityTypeListResponse" message="tns:IContentService_GetActivityTypeList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetUserActivity">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/SetUserActivity" message="tns:IContentService_SetUserActivity_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/SetUserActivityResponse" message="tns:IContentService_SetUserActivity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetUserActivityByProductGroupID">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/SetUserActivityByProductGroupID" message="tns:IContentService_SetUserActivityByProductGroupID_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/SetUserActivityByProductGroupIDResponse" message="tns:IContentService_SetUserActivityByProductGroupID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetKeyValuePair">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/GetKeyValuePair" message="tns:IContentService_GetKeyValuePair_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/GetKeyValuePairResponse" message="tns:IContentService_GetKeyValuePair_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetKeyValuePair">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/SetKeyValuePair" message="tns:IContentService_SetKeyValuePair_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/SetKeyValuePairResponse" message="tns:IContentService_SetKeyValuePair_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DelKeyValuePair">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/DelKeyValuePair" message="tns:IContentService_DelKeyValuePair_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/DelKeyValuePairResponse" message="tns:IContentService_DelKeyValuePair_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DelKeyValuePairByKey">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/DelKeyValuePairByKey" message="tns:IContentService_DelKeyValuePairByKey_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/DelKeyValuePairByKeyResponse" message="tns:IContentService_DelKeyValuePairByKey_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DelKeyValuePairByKeys">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/DelKeyValuePairByKeys" message="tns:IContentService_DelKeyValuePairByKeys_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/DelKeyValuePairByKeysResponse" message="tns:IContentService_DelKeyValuePairByKeys_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TransferGuestKeyValuePair">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/TransferGuestKeyValuePair" message="tns:IContentService_TransferGuestKeyValuePair_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/TransferGuestKeyValuePairResponse" message="tns:IContentService_TransferGuestKeyValuePair_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLessonMastery">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/GetLessonMastery" message="tns:IContentService_GetLessonMastery_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/GetLessonMasteryResponse" message="tns:IContentService_GetLessonMastery_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetLessonMastery">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/SetLessonMastery" message="tns:IContentService_SetLessonMastery_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/SetLessonMasteryResponse" message="tns:IContentService_SetLessonMastery_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetLessonStatus">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/SetLessonStatus" message="tns:IContentService_SetLessonStatus_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/SetLessonStatusResponse" message="tns:IContentService_SetLessonStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTopUsersByCorrectAnswer">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/GetTopUsersByCorrectAnswer" message="tns:IContentService_GetTopUsersByCorrectAnswer_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/GetTopUsersByCorrectAnswerResponse" message="tns:IContentService_GetTopUsersByCorrectAnswer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserMission">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/GetUserMission" message="tns:IContentService_GetUserMission_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/GetUserMissionResponse" message="tns:IContentService_GetUserMission_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetUserMission">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/SetUserMission" message="tns:IContentService_SetUserMission_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/SetUserMissionResponse" message="tns:IContentService_SetUserMission_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetUserMissionComplete">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/SetUserMissionComplete" message="tns:IContentService_SetUserMissionComplete_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/SetUserMissionCompleteResponse" message="tns:IContentService_SetUserMissionComplete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentPetByUserID">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/GetCurrentPetByUserID" message="tns:IContentService_GetCurrentPetByUserID_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/GetCurrentPetByUserIDResponse" message="tns:IContentService_GetCurrentPetByUserID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAdoptedPetData">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/GetAdoptedPetData" message="tns:IContentService_GetAdoptedPetData_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/GetAdoptedPetDataResponse" message="tns:IContentService_GetAdoptedPetData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetCurrentPetData">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/SetCurrentPetData" message="tns:IContentService_SetCurrentPetData_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/SetCurrentPetDataResponse" message="tns:IContentService_SetCurrentPetData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetAdoptedPet">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/SetAdoptedPet" message="tns:IContentService_SetAdoptedPet_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/SetAdoptedPetResponse" message="tns:IContentService_SetAdoptedPet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DelCurrentPet">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/DelCurrentPet" message="tns:IContentService_DelCurrentPet_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/DelCurrentPetResponse" message="tns:IContentService_DelCurrentPet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProduct">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/GetProduct" message="tns:IContentService_GetProduct_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/GetProductResponse" message="tns:IContentService_GetProduct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductPlatformMap">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/GetProductPlatformMap" message="tns:IContentService_GetProductPlatformMap_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/GetProductPlatformMapResponse" message="tns:IContentService_GetProductPlatformMap_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetProduct">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/SetProduct" message="tns:IContentService_SetProduct_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/SetProductResponse" message="tns:IContentService_SetProduct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductGroupID">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/GetProductGroupID" message="tns:IContentService_GetProductGroupID_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/GetProductGroupIDResponse" message="tns:IContentService_GetProductGroupID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSceneByUserID">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/GetSceneByUserID" message="tns:IContentService_GetSceneByUserID_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/GetSceneByUserIDResponse" message="tns:IContentService_GetSceneByUserID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetScene">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/SetScene" message="tns:IContentService_SetScene_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/SetSceneResponse" message="tns:IContentService_SetScene_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserBadgeComplete">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/GetUserBadgeComplete" message="tns:IContentService_GetUserBadgeComplete_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/GetUserBadgeCompleteResponse" message="tns:IContentService_GetUserBadgeComplete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetUserBadgeComplete">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/SetUserBadgeComplete" message="tns:IContentService_SetUserBadgeComplete_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/SetUserBadgeCompleteResponse" message="tns:IContentService_SetUserBadgeComplete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserTreasureChest">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/GetUserTreasureChest" message="tns:IContentService_GetUserTreasureChest_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/GetUserTreasureChestResponse" message="tns:IContentService_GetUserTreasureChest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetUserTreasureChest">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/SetUserTreasureChest" message="tns:IContentService_SetUserTreasureChest_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/SetUserTreasureChestResponse" message="tns:IContentService_SetUserTreasureChest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetUserChestFound">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/SetUserChestFound" message="tns:IContentService_SetUserChestFound_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/SetUserChestFoundResponse" message="tns:IContentService_SetUserChestFound_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTracksByUserID">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/GetTracksByUserID" message="tns:IContentService_GetTracksByUserID_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/GetTracksByUserIDResponse" message="tns:IContentService_GetTracksByUserID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTracksByIDs">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/GetTracksByIDs" message="tns:IContentService_GetTracksByIDs_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/GetTracksByIDsResponse" message="tns:IContentService_GetTracksByIDs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTrackElements">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/GetTrackElements" message="tns:IContentService_GetTrackElements_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/GetTrackElementsResponse" message="tns:IContentService_GetTrackElements_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveUserWithoutTrack">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/RemoveUserWithoutTrack" message="tns:IContentService_RemoveUserWithoutTrack_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/RemoveUserWithoutTrackResponse" message="tns:IContentService_RemoveUserWithoutTrack_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetTrack">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/SetTrack" message="tns:IContentService_SetTrack_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/SetTrackResponse" message="tns:IContentService_SetTrack_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTrack">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/DeleteTrack" message="tns:IContentService_DeleteTrack_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/DeleteTrackResponse" message="tns:IContentService_DeleteTrack_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PurchaseGift">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/PurchaseGift" message="tns:IContentService_PurchaseGift_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/PurchaseGiftResponse" message="tns:IContentService_PurchaseGift_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGiftsReceivedByUserID">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/GetGiftsReceivedByUserID" message="tns:IContentService_GetGiftsReceivedByUserID_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/GetGiftsReceivedByUserIDResponse" message="tns:IContentService_GetGiftsReceivedByUserID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UseTickets">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/UseTickets" message="tns:IContentService_UseTickets_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/UseTicketsResponse" message="tns:IContentService_UseTickets_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllProducts">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/GetAllProducts" message="tns:IContentService_GetAllProducts_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/GetAllProductsResponse" message="tns:IContentService_GetAllProducts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsDisplayNameUnique">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/IsDisplayNameUnique" message="tns:IContentService_IsDisplayNameUnique_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/IsDisplayNameUniqueResponse" message="tns:IContentService_IsDisplayNameUnique_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetUniqueDisplayName">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/SetUniqueDisplayName" message="tns:IContentService_SetUniqueDisplayName_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/SetUniqueDisplayNameResponse" message="tns:IContentService_SetUniqueDisplayName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveUniqueDisplayName">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/RemoveUniqueDisplayName" message="tns:IContentService_RemoveUniqueDisplayName_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/RemoveUniqueDisplayNameResponse" message="tns:IContentService_RemoveUniqueDisplayName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetNextItemState">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/SetNextItemState" message="tns:IContentService_SetNextItemState_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/SetNextItemStateResponse" message="tns:IContentService_SetNextItemState_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetSpeedUpItem">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/SetSpeedUpItem" message="tns:IContentService_SetSpeedUpItem_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/SetSpeedUpItemResponse" message="tns:IContentService_SetSpeedUpItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProfile">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/DeleteProfile" message="tns:IContentService_DeleteProfile_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/DeleteProfileResponse" message="tns:IContentService_DeleteProfile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateName">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/ValidateName" message="tns:IContentService_ValidateName_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/ValidateNameResponse" message="tns:IContentService_ValidateName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserSubscriptionProvider">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/GetUserSubscriptionProvider" message="tns:IContentService_GetUserSubscriptionProvider_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/GetUserSubscriptionProviderResponse" message="tns:IContentService_GetUserSubscriptionProvider_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByExternalUserID">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/GetUserByExternalUserID" message="tns:IContentService_GetUserByExternalUserID_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/GetUserByExternalUserIDResponse" message="tns:IContentService_GetUserByExternalUserID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetCommonInventoryAttribute">
+      <wsdl:input wsaw:Action="KnowledgeAdventure.Service/IContentService/SetCommonInventoryAttribute" message="tns:IContentService_SetCommonInventoryAttribute_InputMessage" />
+      <wsdl:output wsaw:Action="KnowledgeAdventure.Service/IContentService/SetCommonInventoryAttributeResponse" message="tns:IContentService_SetCommonInventoryAttribute_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>
