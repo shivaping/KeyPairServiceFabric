@@ -13,6 +13,9 @@ using System.Fabric.Description;
 using System.Fabric;
 using Microsoft.ServiceFabric.Services.Remoting;
 using Microsoft.ServiceFabric.Actors.Query;
+using System.Diagnostics.Tracing;
+using System.Runtime.Serialization;
+using KeyPair.PairActor.Utility;
 
 namespace KeyPair.PairActor
 {
@@ -46,28 +49,23 @@ namespace KeyPair.PairActor
         {
             return await this.StateManager.GetStateAsync<Pairs>(KeyPairStatePropertyName);
         }
-        public async Task<Pairs> ActorExists()
-        {
-            return await this.StateManager.GetStateAsync<Pairs>(KeyPairStatePropertyName);
-        }
-        public Task<bool> DelKeyValuePair(int pairId, CancellationToken cancellationToken)
+
+        public Task<bool> DelKeyValuePair(int pairId)
         {
             throw new NotImplementedException();
         }
 
-        public Task<bool> DelKeyValuePairByKey(int pairId, string pairKey, CancellationToken cancellationToken)
+        public Task<bool> DelKeyValuePairByKey(int pairId, string pairKey)
         {
             throw new NotImplementedException();
         }
 
-        public Task<bool> DelKeyValuePairByKeys(int pairId, string[] pairKeys, CancellationToken cancellationToken)
+        public Task<bool> DelKeyValuePairByKeys(int pairId, string[] pairKeys)
         {
             throw new NotImplementedException();
         }
 
-        
-
-        public Task<bool> TransferGuestKeyValuePair(Guid parentuserId, CancellationToken cancellationToken)
+        public Task<bool> TransferGuestKeyValuePair(Guid parentuserId)
         {
             throw new NotImplementedException();
         }
@@ -76,65 +74,44 @@ namespace KeyPair.PairActor
         /// This method is called whenever an actor is activated.
         /// An actor is activated the first time any of its methods are invoked.
         /// </summary>
-        protected override Task OnActivateAsync()
+        protected override async Task OnActivateAsync()
         {
-            ActorEventSource.Current.ActorMessage(this, "Actor activated.");
+            ActorEventSource.Current.ActorMessage(this, string.Format("Actor activated {0}.", this.Id.ToString()));
 
             // The StateManager is this actor's private state store.
             // Data stored in the StateManager will be replicated for high-availability for actors that use volatile or persisted state storage.
             // Any serializable object can be saved in the StateManager.
             // For more information, see https://aka.ms/servicefabricactorsstateserialization
-            
-            //    return this.StateManager.TryAddStateAsync(KeyPairState, Pairs);
-            return this.StateManager.TryAddStateAsync("count", 0);
+            ConditionalValue<Pairs> state = await this.StateManager.TryGetStateAsync<Pairs>(KeyPairStatePropertyName);
 
-        }
-
-        /// <summary>
-        /// TODO: Replace with your own actor method.
-        /// </summary>
-        /// <returns></returns>
-        Task<int> IPairActor.GetCountAsync(CancellationToken cancellationToken)
-        {
-            return this.StateManager.GetStateAsync<int>("count", cancellationToken);
-        }
-
-        /// <summary>
-        /// TODO: Replace with your own actor method.
-        /// </summary>
-        /// <param name="count"></param>
-        /// <returns></returns>
-        Task IPairActor.SetCountAsync(int count, CancellationToken cancellationToken)
-        {
-            // Requests are not guaranteed to be processed in order nor at most once.
-            // The update function here verifies that the incoming count is greater than the current count to preserve order.
-            return this.StateManager.AddOrUpdateStateAsync("count", count, (key, value) => count > value ? count : value, cancellationToken);
-        }
-
-    }
-
-    
-    internal class CustomActorService : ActorService, IActorServiceEx
-    {
-        public CustomActorService(StatefulServiceContext context, ActorTypeInformation actorTypeInfo)
-            : base(context, actorTypeInfo )
-        {
-        }
-
-        public async Task<bool> ActorExists(ActorId actorId, CancellationToken cancellationToken)
-        {
-            const int batchSize = 1000;
-            ContinuationToken token = null;
-            do
+            if (!state.HasValue)
             {
-                var actors = await StateProvider.GetActorsAsync(batchSize, token, cancellationToken);
-                if (actors.Items.Contains(actorId))
-                {
-                    return true;
-                }
-                token = actors.ContinuationToken;
-            } while (token != null);
-            return false;
+                ContentService.ContentServiceClient client = new ContentService.ContentServiceClient();
+                ContentService.Pairs pair = client.GetKeyValuePair(this.Id.GetGuidId(), null);
+                DataContractSerializer dcs = new DataContractSerializer(typeof(ContentService.Pairs));
+                string s = SerializationHelper<ContentService.Pairs>.Serialize(pair);
+                Pairs p = SerializationHelper<KeyPair.PairActor.Interfaces.Model.Pairs>.Deserialize(s);
+
+                ActorEventSource.Current.ActorMessage(this, s);
+                await this.StateManager.SetStateAsync<Pairs>(KeyPairStatePropertyName, p);
+                ActorEventSource.Current.ActorMessage(this, "Pairs: State initialized");
+            }
+
+
+            //if (actors.Result != null)
+            //{
+            //    return this.StateManager.TryAddStateAsync(KeyPairState, Pairs);
+            //}
+            //    return this.StateManager.TryAddStateAsync(KeyPairState, Pairs);
+            return;
+        }
+        protected override async Task OnDeactivateAsync()
+        {
+            // ConditionalValue<Pairs> state = await this.StateManager.TryGetStateAsync<Pairs>(KeyPairStatePropertyName);
+            //this.StateManager = null;
+            ActorEventSource.Current.ActorMessage(this, string.Format("Actor DE Activated {0}.", this.Id.ToString()));
+            await base.OnDeactivateAsync();
+            return;
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Fabric;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.ServiceFabric.Actors.Runtime;
+using KeyPair.PairActor.ServiceImpl;
 
 namespace KeyPair.PairActor
 {
@@ -22,7 +23,7 @@ namespace KeyPair.PairActor
                 // For more information, see https://aka.ms/servicefabricactorsplatform
 
                 ActorRuntime.RegisterActorAsync<PairActor>(
-                   (context, actorType) => new CustomActorService(context, actorType)).GetAwaiter().GetResult();
+                   (context, actorType) => new CustomActorService(context, actorType, settings: new ActorServiceSettings() { ActorGarbageCollectionSettings = new ActorGarbageCollectionSettings(idleTimeoutInSeconds: 10, scanIntervalInSeconds: 2) })).GetAwaiter().GetResult();
 
                 Thread.Sleep(Timeout.Infinite);
             }

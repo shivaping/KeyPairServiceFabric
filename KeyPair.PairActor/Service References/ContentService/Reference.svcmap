@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="56a3dc67-5c22-4c4b-9d5b-07d3fc7388ab" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://svc.qa.jumpstart.com/ContentServer/ContentService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ContentService.xsd" MetadataType="Schema" ID="4fa44fe7-4176-4bb1-b820-935491bda6b5" SourceId="1" SourceUrl="http://svc.qa.jumpstart.com/ContentServer/ContentService.svc?xsd=xsd12" />
+    <MetadataFile FileName="ContentService.wsdl" MetadataType="Wsdl" ID="5c050f4b-9a12-458d-b17b-103c8626cc6c" SourceId="1" SourceUrl="http://svc.qa.jumpstart.com/ContentServer/ContentService.svc?wsdl" />
+    <MetadataFile FileName="ContentService.disco" MetadataType="Disco" ID="c74e8cb8-0bce-4186-a869-d6eb7f9d2975" SourceId="1" SourceUrl="http://svc.qa.jumpstart.com/ContentServer/ContentService.svc?disco" />
+    <MetadataFile FileName="ContentService1.xsd" MetadataType="Schema" ID="3696c470-3cd9-415f-bd1e-fd70a87576b0" SourceId="1" SourceUrl="http://svc.qa.jumpstart.com/ContentServer/ContentService.svc?xsd=xsd8" />
+    <MetadataFile FileName="ContentService2.xsd" MetadataType="Schema" ID="42598e56-3f2b-4910-906e-db433555f8a8" SourceId="1" SourceUrl="http://svc.qa.jumpstart.com/ContentServer/ContentService.svc?xsd=xsd9" />
+    <MetadataFile FileName="ContentService3.xsd" MetadataType="Schema" ID="06622195-b4e2-4f3c-a791-c7e3ba7aa05e" SourceId="1" SourceUrl="http://svc.qa.jumpstart.com/ContentServer/ContentService.svc?xsd=xsd5" />
+    <MetadataFile FileName="ContentService4.xsd" MetadataType="Schema" ID="c64841ea-e145-4505-823b-143c369f0be2" SourceId="1" SourceUrl="http://svc.qa.jumpstart.com/ContentServer/ContentService.svc?xsd=xsd15" />
+    <MetadataFile FileName="ContentService5.xsd" MetadataType="Schema" ID="eef24a7a-c6bd-4d10-8bcd-debc5b2220ac" SourceId="1" SourceUrl="http://svc.qa.jumpstart.com/ContentServer/ContentService.svc?xsd=xsd11" />
+    <MetadataFile FileName="ContentService6.xsd" MetadataType="Schema" ID="75357854-13a7-4611-969b-fb2241849fe4" SourceId="1" SourceUrl="http://svc.qa.jumpstart.com/ContentServer/ContentService.svc?xsd=xsd14" />
+    <MetadataFile FileName="ContentService7.xsd" MetadataType="Schema" ID="3717338e-7760-4036-8a16-f26bcd845475" SourceId="1" SourceUrl="http://svc.qa.jumpstart.com/ContentServer/ContentService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ContentService8.xsd" MetadataType="Schema" ID="c6485035-57e7-4707-83e2-cc9924f3c14a" SourceId="1" SourceUrl="http://svc.qa.jumpstart.com/ContentServer/ContentService.svc?xsd=xsd1" />
+    <MetadataFile FileName="ContentService9.xsd" MetadataType="Schema" ID="28fdbc78-2487-4f95-bca7-9e04c54f3c54" SourceId="1" SourceUrl="http://svc.qa.jumpstart.com/ContentServer/ContentService.svc?xsd=xsd2" />
+    <MetadataFile FileName="ContentService10.xsd" MetadataType="Schema" ID="57a08342-6a77-4a3c-8333-ecf8236ed2f5" SourceId="1" SourceUrl="http://svc.qa.jumpstart.com/ContentServer/ContentService.svc?xsd=xsd3" />
+    <MetadataFile FileName="ContentService11.xsd" MetadataType="Schema" ID="0ae0f382-1831-426d-9419-9501f6884908" SourceId="1" SourceUrl="http://svc.qa.jumpstart.com/ContentServer/ContentService.svc?xsd=xsd4" />
+    <MetadataFile FileName="ContentService12.xsd" MetadataType="Schema" ID="d304fbb2-4840-4937-a48e-4f59c305e77d" SourceId="1" SourceUrl="http://svc.qa.jumpstart.com/ContentServer/ContentService.svc?xsd=xsd10" />
+    <MetadataFile FileName="ContentService1.wsdl" MetadataType="Wsdl" ID="0aefc78e-4b1e-4bec-9e16-9ab2e43dceb2" SourceId="1" SourceUrl="http://svc.qa.jumpstart.com/ContentServer/ContentService.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="ContentService13.xsd" MetadataType="Schema" ID="70778fc0-43ae-4034-b193-75ab8cecfa23" SourceId="1" SourceUrl="http://svc.qa.jumpstart.com/ContentServer/ContentService.svc?xsd=xsd6" />
+    <MetadataFile FileName="ContentService14.xsd" MetadataType="Schema" ID="881711ea-a3db-4838-a26a-bc3b11bb6ae4" SourceId="1" SourceUrl="http://svc.qa.jumpstart.com/ContentServer/ContentService.svc?xsd=xsd13" />
+    <MetadataFile FileName="ContentService15.xsd" MetadataType="Schema" ID="c58259bd-8d73-4d16-a3cf-aafc783e420a" SourceId="1" SourceUrl="http://svc.qa.jumpstart.com/ContentServer/ContentService.svc?xsd=xsd7" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

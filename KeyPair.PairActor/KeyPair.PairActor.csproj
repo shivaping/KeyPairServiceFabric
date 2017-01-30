@@ -90,6 +90,14 @@
     <Compile Include="PairActor.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ActorEventSource.cs" />
+    <Compile Include="Service References\ContentService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceEventSource.cs" />
+    <Compile Include="ServiceImpl\CustomActorService.cs" />
+    <Compile Include="Utility\SerializationHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="PackageRoot\ServiceManifest.xml" />
@@ -98,6 +106,200 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
+    <None Include="Service References\ContentService\ContentService.wsdl" />
+    <None Include="Service References\ContentService\ContentService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ContentService\ContentService1.wsdl" />
+    <None Include="Service References\ContentService\ContentService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ContentService\ContentService10.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ContentService\ContentService11.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ContentService\ContentService12.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ContentService\ContentService13.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ContentService\ContentService14.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ContentService\ContentService15.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ContentService\ContentService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ContentService\ContentService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ContentService\ContentService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ContentService\ContentService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ContentService\ContentService6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ContentService\ContentService7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ContentService\ContentService8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ContentService\ContentService9.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ContentService\KeyPair.PairActor.ContentService.AR.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ContentService\KeyPair.PairActor.ContentService.ARM.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ContentService\KeyPair.PairActor.ContentService.AvatarData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ContentService\KeyPair.PairActor.ContentService.AvatarDisplayData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ContentService\KeyPair.PairActor.ContentService.CacheContentResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ContentService\KeyPair.PairActor.ContentService.CIRS.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ContentService\KeyPair.PairActor.ContentService.CommonInventory.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ContentService\KeyPair.PairActor.ContentService.DeleteProfileStatus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ContentService\KeyPair.PairActor.ContentService.DisplayNames.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ContentService\KeyPair.PairActor.ContentService.GiftTransactionInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ContentService\KeyPair.PairActor.ContentService.HouseData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ContentService\KeyPair.PairActor.ContentService.ImageData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ContentService\KeyPair.PairActor.ContentService.ImageDataComplete.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ContentService\KeyPair.PairActor.ContentService.ImageSubmitResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ContentService\KeyPair.PairActor.ContentService.InventoryData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ContentService\KeyPair.PairActor.ContentService.JT.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ContentService\KeyPair.PairActor.ContentService.LessonRankData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ContentService\KeyPair.PairActor.ContentService.MasteryData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ContentService\KeyPair.PairActor.ContentService.NameValidationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ContentService\KeyPair.PairActor.ContentService.NicknameSetResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ContentService\KeyPair.PairActor.ContentService.Nn.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ContentService\KeyPair.PairActor.ContentService.Pairs.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ContentService\KeyPair.PairActor.ContentService.PetData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ContentService\KeyPair.PairActor.ContentService.PresentData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ContentService\KeyPair.PairActor.ContentService.ProductData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ContentService\KeyPair.PairActor.ContentService.ProductItem.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ContentService\KeyPair.PairActor.ContentService.ProductPlatform.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ContentService\KeyPair.PairActor.ContentService.RevealData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ContentService\KeyPair.PairActor.ContentService.SceneData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ContentService\KeyPair.PairActor.ContentService.SetImageWithImageUrlReturnedResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ContentService\KeyPair.PairActor.ContentService.SetNextItemStateResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ContentService\KeyPair.PairActor.ContentService.SetSpeedUpItemResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ContentService\KeyPair.PairActor.ContentService.SetUserGradeResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ContentService\KeyPair.PairActor.ContentService.TE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ContentService\KeyPair.PairActor.ContentService.TI.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ContentService\KeyPair.PairActor.ContentService.UA.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ContentService\KeyPair.PairActor.ContentService.UAT.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ContentService\KeyPair.PairActor.ContentService.UG.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ContentService\KeyPair.PairActor.ContentService.UGR.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ContentService\KeyPair.PairActor.ContentService.UGRE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ContentService\KeyPair.PairActor.ContentService.UIP.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ContentService\KeyPair.PairActor.ContentService.UIPSRS.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ContentService\KeyPair.PairActor.ContentService.US.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ContentService\KeyPair.PairActor.ContentService.UserBadge.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ContentService\KeyPair.PairActor.ContentService.UserMissionData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ContentService\KeyPair.PairActor.ContentService.UserTreasureChestData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ContentService\KeyPair.PairActor.ContentService.USP.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ContentService\KeyPair.PairActor.ContentService.UTI.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\KeyPair.PairActor.Interfaces\KeyPair.PairActor.Interfaces.csproj">
@@ -107,6 +309,24 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ContentService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ContentService\ContentService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ContentService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ContentService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ContentService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.ServiceFabric.Actors.2.4.145\build\Microsoft.ServiceFabric.Actors.targets" Condition="Exists('..\packages\Microsoft.ServiceFabric.Actors.2.4.145\build\Microsoft.ServiceFabric.Actors.targets')" />

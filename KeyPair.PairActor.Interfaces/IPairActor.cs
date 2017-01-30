@@ -14,36 +14,11 @@ namespace KeyPair.PairActor.Interfaces
     /// </summary>
     public interface IPairActor : IActor
     {
-        /// <summary>
-        /// TODO: Replace with your own actor method.
-        /// </summary>
-        /// <returns></returns>
-        Task<int> GetCountAsync(CancellationToken cancellationToken);
-
-        /// <summary>
-        /// TODO: Replace with your own actor method.
-        /// </summary>
-        /// <param name="count"></param>
-        /// <returns></returns>
-        Task SetCountAsync(int count, CancellationToken cancellationToken);
-
-
         Task<Pairs> GetKeyValuePair();
-
-
-     
-
         Task SetKeyValuePair(Pairs pairs);
-
-        Task<bool> DelKeyValuePair(int pairId, CancellationToken cancellationToken);
-
-
-        Task<bool> DelKeyValuePairByKey(int pairId, string pairKey, CancellationToken cancellationToken);
-
-
-        Task<bool> DelKeyValuePairByKeys(int pairId, string[] pairKeys, CancellationToken cancellationToken);
-
-
-        Task<bool> TransferGuestKeyValuePair(Guid parentuserId, CancellationToken cancellationToken);
+        Task<bool> DelKeyValuePair(int pairId);
+        Task<bool> DelKeyValuePairByKey(int pairId, string pairKey);
+        Task<bool> DelKeyValuePairByKeys(int pairId, string[] pairKeys);
+        Task<bool> TransferGuestKeyValuePair(Guid parentuserId);
     }
 }
