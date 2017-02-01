@@ -14,7 +14,7 @@ namespace KeyPair.PairActor.Interfaces
     /// </summary>
     public interface IPairActor : IActor
     {
-        Task<Pairs> GetKeyValuePair();
+        Task<Dictionary<int, Pairs>> GetKeyValuePair();
         Task SetKeyValuePair(Pairs pairs);
         Task<bool> DelKeyValuePair(int pairId);
         Task<bool> DelKeyValuePairByKey(int pairId, string pairKey);

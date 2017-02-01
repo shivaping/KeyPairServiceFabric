@@ -7,5 +7,21 @@
   <Section Name="PairActorServiceReplicatorSecurityConfig">
     <Parameter Name="CredentialType" Value="None" />
   </Section>
+  <Section Name="PairActorService.Settings">
+    <Parameter Name="BackupMode" Value="Local" />
+    <Parameter Name="DBConnection" Value="Server=KA-V-QADB01; Database=ContentServer; user ID=development; password=d3v3l0pm3nt#; Application Name=CONTENT_SERVER_SERVICE_SERVER_QA;" />
+  </Section>
+  <Section Name="PairActorService.BackupSettings.Azure">
+    <Parameter Name="BackupAccountName" Value="todelete" />
+    <Parameter Name="PrimaryKeyForBackupTestAccount" Value="qLsMU0co+YtNFR6VAu8DDAAwxFclPcMc5Fp9vfMPzin4QjceegPPYXe4YW8v/J5fVhgQ8mlUH9q6HgkMkkllzQ==" />
+    <Parameter Name="BlobServiceEndpointAddress" Value="https://todelete.blob.core.windows.net/" />
+    <Parameter Name="BackupFrequencyInSeconds" Value="5" />
+    <Parameter Name="MaxBackupsToKeep" Value="500" />
+  </Section>
+  <Section Name="PairActorService.BackupSettings.Local">
+    <Parameter Name="BackupArchivalPath" Value="E:\Sample" />
+    <Parameter Name="BackupFrequencyInSeconds" Value="10" />
+    <Parameter Name="MaxBackupsToKeep" Value="5" />
+  </Section>
   <!-- The content will be generated during build -->
 </Settings>

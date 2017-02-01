@@ -3,7 +3,7 @@
   <ServiceTypes>
     <StatefulServiceType ServiceTypeName="PairActorServiceType" HasPersistedState="true">
       <Extensions>
-        <Extension Name="__GeneratedServiceType__" GeneratedId="bee0eebd-c8e8-4464-ad6a-db27d62a938a|Persisted">
+        <Extension Name="__GeneratedServiceType__" GeneratedId="5e101745-e1af-426f-89d9-f3bc67057c12|Persisted">
           <GeneratedNames xmlns="http://schemas.microsoft.com/2015/03/fabact-no-schema">
             <DefaultService Name="PairActorService" />
             <ServiceEndpoint Name="PairActorServiceEndpoint" />
@@ -14,6 +14,18 @@
           </GeneratedNames>
         </Extension>
       </Extensions>
+      <!--<Extensions>
+        <Extension Name="__GeneratedServiceType__" GeneratedId="bee0eebd-c8e8-4464-ad6a-db27d62a938a|Persisted">
+          <GeneratedNames xmlns="http://schemas.microsoft.com/2015/03/fabact-no-schema">
+            <DefaultService Name="PairActorService" />
+            <ServiceEndpoint Name="PairActorServiceEndpoint" />
+            <ReplicatorEndpoint Name="PairActorServiceReplicatorEndpoint" />
+            <ReplicatorConfigSection Name="PairActorServiceReplicatorConfig" />
+            <ReplicatorSecurityConfigSection Name="PairActorServiceReplicatorSecurityConfig" />
+            <StoreConfigSection Name="PairActorServiceLocalStoreConfig" />
+          </GeneratedNames>
+        </Extension>
+      </Extensions>-->
     </StatefulServiceType>
   </ServiceTypes>
   <CodePackage Name="Code" Version="1.0.0">

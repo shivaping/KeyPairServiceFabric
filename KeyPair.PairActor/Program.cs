@@ -21,9 +21,9 @@ namespace KeyPair.PairActor
                 // The contents of your ServiceManifest.xml and ApplicationManifest.xml files
                 // are automatically populated when you build this project.
                 // For more information, see https://aka.ms/servicefabricactorsplatform
-
+                
                 ActorRuntime.RegisterActorAsync<PairActor>(
-                   (context, actorType) => new CustomActorService(context, actorType, settings: new ActorServiceSettings() { ActorGarbageCollectionSettings = new ActorGarbageCollectionSettings(idleTimeoutInSeconds: 10, scanIntervalInSeconds: 2) })).GetAwaiter().GetResult();
+                   (context, actorType) => new PairActorService(context, actorType, settings: new ActorServiceSettings() { ActorGarbageCollectionSettings = new ActorGarbageCollectionSettings(idleTimeoutInSeconds: 10, scanIntervalInSeconds: 2) })).GetAwaiter().GetResult();
 
                 Thread.Sleep(Timeout.Infinite);
             }

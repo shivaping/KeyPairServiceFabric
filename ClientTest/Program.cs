@@ -26,7 +26,7 @@ namespace ClientTest
         static void Main(string[] args)
         {
             //Guid userID = new Guid("23103127-A5DF-495A-B672-C041D5166D89");
-            Guid userID = new Guid("7B761CD6-C114-4F58-AC2C-42B905E50844");
+            Guid userID = new Guid("ce8d8d29-0d07-4943-954e-3f573659a77b");
             //Guid userID = new Guid("7C9F2082-3965-44D3-87B6-5433BA727707");
             
 
@@ -36,8 +36,8 @@ namespace ClientTest
             //ContentServiceReference.ContentServiceClient client = new ContentServiceReference.ContentServiceClient();
             //IPairActor actor = ActorProxy.Create<IPairActor>(new ActorId(userID), new Uri("fabric:/KeyPairServiceFabric/PairActorService"));
             IPairActor actor = ActorProxy.Create<IPairActor>(new ActorId(userID), new Uri(url));
-            Task<Pairs> pairData = actor.GetKeyValuePair();
-            Pairs pair = pairData.Result;
+            Task<Dictionary<int, Pairs>> pairData = actor.GetKeyValuePair();
+            Dictionary<int, Pairs> pair = pairData.Result;
 
             //PerformDataLossUseSelectorSample();
             //IActorService myActorServiceProxy = ActorServiceProxy.Create(new Uri("fabric:/KeyPairServiceFabric/PairActorService"), new ActorId(userID));

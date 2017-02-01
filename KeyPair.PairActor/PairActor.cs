@@ -16,6 +16,9 @@ using Microsoft.ServiceFabric.Actors.Query;
 using System.Diagnostics.Tracing;
 using System.Runtime.Serialization;
 using KeyPair.PairActor.Utility;
+using System.Data.SqlClient;
+using System.Data;
+using KeyPair.PairActor.ServiceImpl;
 
 namespace KeyPair.PairActor
 {
@@ -45,13 +48,19 @@ namespace KeyPair.PairActor
         {
             await this.StateManager.SetStateAsync<Pairs>(KeyPairStatePropertyName, pairs);
         }
-        public async Task<Pairs> GetKeyValuePair()
+        public async Task<Dictionary<int, Pairs>> GetKeyValuePair()
         {
-            return await this.StateManager.GetStateAsync<Pairs>(KeyPairStatePropertyName);
+            return await this.StateManager.GetStateAsync<Dictionary<int, Pairs>>(KeyPairStatePropertyName);
         }
 
-        public Task<bool> DelKeyValuePair(int pairId)
+        public async Task<bool> DelKeyValuePair(int pairId)
         {
+            //ConditionalValue<Pairs> state = await this.StateManager.TryGetStateAsync<Pairs>(KeyPairStatePropertyName);
+            //if (!state.HasValue)
+            //{
+            //    List<PairsPair> pairs = state.Value.Items.ToList();
+            //    pairs.RemoveAll(p=>p.PairKey)
+            //}
             throw new NotImplementedException();
         }
 
@@ -82,18 +91,12 @@ namespace KeyPair.PairActor
             // Data stored in the StateManager will be replicated for high-availability for actors that use volatile or persisted state storage.
             // Any serializable object can be saved in the StateManager.
             // For more information, see https://aka.ms/servicefabricactorsstateserialization
-            ConditionalValue<Pairs> state = await this.StateManager.TryGetStateAsync<Pairs>(KeyPairStatePropertyName);
+            ConditionalValue<Dictionary<int, Pairs>> state = await this.StateManager.TryGetStateAsync<Dictionary<int, Pairs>>(KeyPairStatePropertyName);
 
             if (!state.HasValue)
             {
-                ContentService.ContentServiceClient client = new ContentService.ContentServiceClient();
-                ContentService.Pairs pair = client.GetKeyValuePair(this.Id.GetGuidId(), null);
-                DataContractSerializer dcs = new DataContractSerializer(typeof(ContentService.Pairs));
-                string s = SerializationHelper<ContentService.Pairs>.Serialize(pair);
-                Pairs p = SerializationHelper<KeyPair.PairActor.Interfaces.Model.Pairs>.Deserialize(s);
-
-                ActorEventSource.Current.ActorMessage(this, s);
-                await this.StateManager.SetStateAsync<Pairs>(KeyPairStatePropertyName, p);
+                Dictionary<int, Pairs> p = LoadUserPairs();
+                await this.StateManager.SetStateAsync<Dictionary<int, Pairs>>(KeyPairStatePropertyName, p);
                 ActorEventSource.Current.ActorMessage(this, "Pairs: State initialized");
             }
 
@@ -105,6 +108,40 @@ namespace KeyPair.PairActor
             //    return this.StateManager.TryAddStateAsync(KeyPairState, Pairs);
             return;
         }
+
+        private Dictionary<int, Pairs> LoadUserPairs()
+        {
+            Dictionary<int, Pairs> p = new Dictionary<int, Pairs>();
+
+            ICodePackageActivationContext codePackageContext = this.ActorService.Context.CodePackageActivationContext;
+            ConfigurationPackage configPackage = codePackageContext.GetConfigurationPackageObject("Config");
+            ConfigurationSection configSection = configPackage.Settings.Sections["PairActorService.Settings"];
+            string dbSettingValue = configSection.Parameters["DBConnection"].Value;
+            using (SqlConnection con = new SqlConnection(dbSettingValue))
+            {
+                using (SqlCommand cmd = new SqlCommand("KAP_GetKeyValuePair_V1", con))
+                {
+
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.CommandText = "KAP_GetKeyValuePair_V1";
+                    cmd.Parameters.Add("@UserID", SqlDbType.UniqueIdentifier).Value = new Guid(this.Id.ToString());
+                    con.Open();
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            int pairID = int.Parse(dr["PairID"].ToString()); string PairKey = dr["PairKey"].ToString(); string PairValue = dr["PairValue"].ToString();
+                            if (!p.ContainsKey(pairID))
+                                p[pairID] = new Pairs() { Items = new List<PairsPair>() { new PairsPair() { PairKey = PairKey, PairValue = PairValue } } };
+                            else
+                                p[pairID].Items.Add(new PairsPair() { PairKey = PairKey, PairValue = PairValue });
+                        }
+                    }
+                }
+            }
+            return p;
+        }
+
         protected override async Task OnDeactivateAsync()
         {
             // ConditionalValue<Pairs> state = await this.StateManager.TryGetStateAsync<Pairs>(KeyPairStatePropertyName);

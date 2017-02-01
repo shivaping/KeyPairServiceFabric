@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="KeyPair.WebServiceType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Parameters>
-    <Parameter Name="KeyPairAPI_InstanceCount" DefaultValue="-1" />
-    <Parameter Name="PairActorService_PartitionCount" DefaultValue="10" />
+    <!--<Parameter Name="KeyPairAPI_InstanceCount" DefaultValue="-1" />-->
+    <Parameter Name="PairActorService_PartitionCount" DefaultValue="1" />
     <Parameter Name="PairActorService_MinReplicaSetSize" DefaultValue="3" />
     <Parameter Name="PairActorService_TargetReplicaSetSize" DefaultValue="3" />
   </Parameters>
@@ -23,11 +23,11 @@
          
          The attribute ServiceTypeName below must match the name defined in the imported ServiceManifest.xml file. -->
     <Service Name="KeyPairAPI">
-      <StatelessService ServiceTypeName="KeyPairAPIType" InstanceCount="[KeyPairAPI_InstanceCount]">
+      <StatelessService ServiceTypeName="KeyPairAPIType">
         <SingletonPartition />
       </StatelessService>
     </Service>
-    <Service Name="PairActorService" GeneratedIdRef="bee0eebd-c8e8-4464-ad6a-db27d62a938a|Persisted">
+    <Service Name="PairActorService" GeneratedIdRef="5e101745-e1af-426f-89d9-f3bc67057c12|Persisted">
       <StatefulService ServiceTypeName="PairActorServiceType" TargetReplicaSetSize="[PairActorService_TargetReplicaSetSize]" MinReplicaSetSize="[PairActorService_MinReplicaSetSize]">
         <UniformInt64Partition PartitionCount="[PairActorService_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
       </StatefulService>

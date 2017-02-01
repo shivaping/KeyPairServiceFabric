@@ -2,33 +2,32 @@
 using KeyPair.PairActor.Interfaces.Model;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Fabric;
 using Microsoft.ServiceFabric.Actors.Client;
 using Microsoft.ServiceFabric.Actors;
+using System.Data.SqlClient;
+using System.Data;
+
 namespace KeyPairAPI.Controllers
 {
     [ServiceRequestActionFilter]
     public class ValuesController : ApiController
     {
+        string url = "fabric:/KeyPair.WebService/PairActorService";
         // GET api/values 
-        public string Get()
+        public string GetKeyValuePair(string userID, int? pairId)
         {
-            Guid userID = new Guid("7B761CD6-C114-4F58-AC2C-42B905E50844");
-            //Guid userID = new Guid("7C9F2082-3965-44D3-87B6-5433BA727707");
-            string url = "fabric:/KeyPair.WebService/PairActorService";
-
-            //var actorService = ActorServiceProxy.Create<IActorServiceEx>(new Uri("fabric:/KeyPairServiceFabric/PairActorService"), (new ActorId(userID)));
-            //Task<bool> exists = actorService.ActorExists(new ActorId(userID));
-            //bool result = exists.Result;
-            //ContentServiceReference.ContentServiceClient client = new ContentServiceReference.ContentServiceClient();
-            //IPairActor actor = ActorProxy.Create<IPairActor>(new ActorId(userID), new Uri("fabric:/KeyPairServiceFabric/PairActorService"));
             IPairActor actor = ActorProxy.Create<IPairActor>(new ActorId(userID), new Uri(url));
-            Task<Pairs> pairData = actor.GetKeyValuePair();
-            Pairs pair = pairData.Result;
-            string value = Newtonsoft.Json.JsonConvert.SerializeObject(pair);
-            return  value ;
+            Task<Dictionary<int, Pairs>> pairData = actor.GetKeyValuePair();
+            var pair = pairData.Result;
+            string returnValue = string.Empty;
+            if (pairId.HasValue)
+                returnValue = Newtonsoft.Json.JsonConvert.SerializeObject(pair[pairId.Value].Items);
+            returnValue = Newtonsoft.Json.JsonConvert.SerializeObject(pair.Values);
+            return returnValue;
         }
 
         // GET api/values/5 
