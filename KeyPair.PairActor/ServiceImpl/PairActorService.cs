@@ -45,6 +45,9 @@ namespace KeyPair.PairActor.ServiceImpl
         protected override async Task<bool> OnDataLossAsync(RestoreContext restoreCtx, CancellationToken cancellationToken)
         {
             ServiceEventSource.Current.ServiceMessage(this.Context, "OnDataLoss Invoked!");
+            return true;
+            //Commented as Microsoft is helping on this. Its throwing an IO error
+            /*
             this.SetupBackupManager();
 
             try
@@ -82,9 +85,10 @@ namespace KeyPair.PairActor.ServiceImpl
 
                 throw;
             }
+            */
         }
         #endregion
-        
+
         #region BackUp
         private IBackupStore backupManager;
         //Set local or cloud backup, or none. Disabled is the default. Overridden by config.
@@ -104,10 +108,10 @@ namespace KeyPair.PairActor.ServiceImpl
                 else
                 {
                     await Task.Delay(TimeSpan.FromSeconds(this.backupManager.backupFrequencyInSeconds));
+                    //Commented as Microsoft is helping on this. Its throwing an IO error
+                    //BackupDescription backupDescription = new BackupDescription(BackupOption.Full, this.BackupCallbackAsync);
 
-                    BackupDescription backupDescription = new BackupDescription(BackupOption.Full, this.BackupCallbackAsync);
-                    
-                    await this.BackupAsync(backupDescription, TimeSpan.FromHours(1), cancellationToken);
+                    //await this.BackupAsync(backupDescription, TimeSpan.FromHours(1), cancellationToken);
 
                     backupsTaken++;
 

@@ -15,12 +15,12 @@
     <Parameter Name="BackupAccountName" Value="todelete" />
     <Parameter Name="PrimaryKeyForBackupTestAccount" Value="qLsMU0co+YtNFR6VAu8DDAAwxFclPcMc5Fp9vfMPzin4QjceegPPYXe4YW8v/J5fVhgQ8mlUH9q6HgkMkkllzQ==" />
     <Parameter Name="BlobServiceEndpointAddress" Value="https://todelete.blob.core.windows.net/" />
-    <Parameter Name="BackupFrequencyInSeconds" Value="5" />
+    <Parameter Name="BackupFrequencyInSeconds" Value="500" />
     <Parameter Name="MaxBackupsToKeep" Value="500" />
   </Section>
   <Section Name="PairActorService.BackupSettings.Local">
     <Parameter Name="BackupArchivalPath" Value="E:\Sample" />
-    <Parameter Name="BackupFrequencyInSeconds" Value="10" />
+    <Parameter Name="BackupFrequencyInSeconds" Value="500" />
     <Parameter Name="MaxBackupsToKeep" Value="5" />
   </Section>
   <!-- The content will be generated during build -->

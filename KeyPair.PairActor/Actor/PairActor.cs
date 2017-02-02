@@ -99,13 +99,6 @@ namespace KeyPair.PairActor
                 await this.StateManager.SetStateAsync<Dictionary<int, Pairs>>(KeyPairStatePropertyName, p);
                 ActorEventSource.Current.ActorMessage(this, "Pairs: State initialized");
             }
-
-
-            //if (actors.Result != null)
-            //{
-            //    return this.StateManager.TryAddStateAsync(KeyPairState, Pairs);
-            //}
-            //    return this.StateManager.TryAddStateAsync(KeyPairState, Pairs);
             return;
         }
 

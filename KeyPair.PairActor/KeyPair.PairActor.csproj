@@ -120,7 +120,7 @@
     <Compile Include="BackUp\Implementation\DiskBackupManager.cs" />
     <Compile Include="BackUp\Interface\IBackupStore.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PairActor.cs" />
+    <Compile Include="Actor\PairActor.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ActorEventSource.cs" />
     <Compile Include="ServiceEventSource.cs" />

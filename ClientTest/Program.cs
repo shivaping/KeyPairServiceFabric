@@ -22,22 +22,24 @@ namespace ClientTest
 {
     class Program
     {
-        static string url = "fabric:/KeyPairServiceFabric/PairActorService";
+        static string url = "fabric:/WebReferenceApplication/InventoryService";
         static void Main(string[] args)
         {
-            //Guid userID = new Guid("23103127-A5DF-495A-B672-C041D5166D89");
-            Guid userID = new Guid("ce8d8d29-0d07-4943-954e-3f573659a77b");
-            //Guid userID = new Guid("7C9F2082-3965-44D3-87B6-5433BA727707");
+            //https://disqus.com/home/discussion/thewindowsazureproductsite/reliable_service_backup_and_restore_microsoft_azure/
+           
+            Guid userID = new Guid("23103127-A5DF-495A-B672-C041D5166D89");
+            //Guid userID = new Guid("ce8d8d29-0d07-4943-954e-3f573659a77b");
+            ////Guid userID = new Guid("7C9F2082-3965-44D3-87B6-5433BA727707");
             
 
-            //var actorService = ActorServiceProxy.Create<IActorServiceEx>(new Uri("fabric:/KeyPairServiceFabric/PairActorService"), (new ActorId(userID)));
-            //Task<bool> exists = actorService.ActorExists(new ActorId(userID));
-            //bool result = exists.Result;
-            //ContentServiceReference.ContentServiceClient client = new ContentServiceReference.ContentServiceClient();
+            ///var actorService = ActorServiceProxy.Create<IActorServiceEx>(new Uri("fabric:/KeyPairServiceFabric/PairActorService"), (new ActorId(userID)));
+            ////Task<bool> exists = actorService.ActorExists(new ActorId(userID));
+            ////bool result = exists.Result;
+            ////ContentServiceReference.ContentServiceClient client = new ContentServiceReference.ContentServiceClient();
             //IPairActor actor = ActorProxy.Create<IPairActor>(new ActorId(userID), new Uri("fabric:/KeyPairServiceFabric/PairActorService"));
-            IPairActor actor = ActorProxy.Create<IPairActor>(new ActorId(userID), new Uri(url));
-            Task<Dictionary<int, Pairs>> pairData = actor.GetKeyValuePair();
-            Dictionary<int, Pairs> pair = pairData.Result;
+            //IPairActor actor = ActorProxy.Create<IPairActor>(new ActorId(userID), new Uri(url));
+            //Task<Dictionary<int, Pairs>> pairData = actor.GetKeyValuePair();
+            //Dictionary<int, Pairs> pair = pairData.Result;
 
             //PerformDataLossUseSelectorSample();
             //IActorService myActorServiceProxy = ActorServiceProxy.Create(new Uri("fabric:/KeyPairServiceFabric/PairActorService"), new ActorId(userID));
@@ -98,7 +100,7 @@ namespace ClientTest
 
             // Use a PartitionSelector that will have the Fault Injection and Analysis Service choose a random partition of “targetServiceName”
             PartitionSelector partitionSelector = PartitionSelector.RandomOf(targetServiceName);
-
+            
             // Start the command.  Retry OperationCanceledException and all FabricTransientException's.  Note when StartPartitionDataLossAsync completes
             // successfully it only means the Fault Injection and Analysis Service has saved the intent to perform this work.  It does not say anything about the progress
             // of the command.
