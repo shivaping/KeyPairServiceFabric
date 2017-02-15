@@ -109,9 +109,9 @@ namespace KeyPair.PairActor.ServiceImpl
                 {
                     await Task.Delay(TimeSpan.FromSeconds(this.backupManager.backupFrequencyInSeconds));
                     //Commented as Microsoft is helping on this. Its throwing an IO error
-                    //BackupDescription backupDescription = new BackupDescription(BackupOption.Full, this.BackupCallbackAsync);
+                    BackupDescription backupDescription = new BackupDescription(BackupOption.Full, this.BackupCallbackAsync);
 
-                    //await this.BackupAsync(backupDescription, TimeSpan.FromHours(1), cancellationToken);
+                    await this.BackupAsync(backupDescription, TimeSpan.FromHours(1), cancellationToken);
 
                     backupsTaken++;
 
