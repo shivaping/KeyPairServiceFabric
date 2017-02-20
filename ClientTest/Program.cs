@@ -22,12 +22,13 @@ namespace ClientTest
 {
     class Program
     {
-        static string url = "fabric:/WebReferenceApplication/InventoryService";
+        //static string url = "fabric:/WebReferenceApplication/InventoryService";
+        static string url = "fabric:/KeyPair.WebService/PairActorService";
         static void Main(string[] args)
         {
             //https://disqus.com/home/discussion/thewindowsazureproductsite/reliable_service_backup_and_restore_microsoft_azure/
            
-            Guid userID = new Guid("23103127-A5DF-495A-B672-C041D5166D89");
+           // Guid userID = new Guid("23103127-A5DF-495A-B672-C041D5166D89");
             //Guid userID = new Guid("ce8d8d29-0d07-4943-954e-3f573659a77b");
             ////Guid userID = new Guid("7C9F2082-3965-44D3-87B6-5433BA727707");
             
@@ -41,7 +42,7 @@ namespace ClientTest
             //Task<Dictionary<int, Pairs>> pairData = actor.GetKeyValuePair();
             //Dictionary<int, Pairs> pair = pairData.Result;
 
-            //PerformDataLossUseSelectorSample();
+            PerformDataLossUseSelectorSample();
             //IActorService myActorServiceProxy = ActorServiceProxy.Create(new Uri("fabric:/KeyPairServiceFabric/PairActorService"), new ActorId(userID));
             //myActorServiceProxy.DeleteActorAsync(new ActorId(userID), new System.Threading.CancellationToken()).GetAwaiter().GetResult();
 
